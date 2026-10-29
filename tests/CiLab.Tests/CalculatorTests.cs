@@ -1,6 +1,7 @@
 using System;
 using CiLab.Core;
 using Xunit;
+
 namespace CiLab.Tests;
 
 public class CalculatorTests
@@ -18,6 +19,4 @@ public class CalculatorTests
         var calc = new Calculator();
         Assert.Throws<DivideByZeroException>(() => calc.Divide(10, 0));
     }
-    
-
 }
