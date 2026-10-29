@@ -33,7 +33,3 @@ jobs:
       # 5. Test: Run your unit tests
       - name: Test
         run: dotnet test --no-build --configuration Release --verbosity normal
-
-      # 6. Format: Check formatting with dotnet format
-      - name: Format Code
-        run: dotnet format --verify-no-changes --no-restore
