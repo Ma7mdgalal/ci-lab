@@ -1,0 +1,39 @@
+name: CiLab
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout: Get your code onto the runner
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Setup .NET: Install the SDK version you need
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x' # Adjust to your project's version
+
+      # 3. Restore: Download NuGet dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # 4. Build: Compile the project in Release mode
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      # 5. Test: Run your unit tests
+      - name: Test
+        run: dotnet test --no-build --configuration Release --verbosity normal
+
+      # 6. Format: Check formatting with dotnet format
+      - name: Format Code
+        run: dotnet format --verify-no-changes --no-restore
