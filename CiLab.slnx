@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CiLab.Core/CiLab.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CiLab.Tests/CiLab.Tests.csproj" />
+  </Folder>
+</Solution>
