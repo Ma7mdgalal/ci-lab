@@ -19,4 +19,11 @@ public class CalculatorTests
         var calc = new Calculator();
         Assert.Throws<DivideByZeroException>(() => calc.Divide(10, 0));
     }
+
+    [Fact]
+    public void Multiply_ReturnsProduct()
+    {
+        var calc = new Calculator();
+        Assert.Equal(6, calc.Multiply(2, 3));
+    }
 }
